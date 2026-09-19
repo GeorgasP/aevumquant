@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Aevum Quant — Automated Trading System</title>
-<meta name="description" content="Institutional-grade automated trading & capital-management system for MT5 and prop firms. 24 strategies, 13-layer risk engine, ML + LLM intelligence, multi-broker compliance.">
+<meta name="description" content="Institutional-grade automated trading & capital-management platform for personal and corporate accounts. 24 strategies, 13-layer risk engine, ML + LLM intelligence, multi-broker compliance.">
 <meta name="theme-color" content="#0f1117">
 <!-- OpenGraph / LinkedIn / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://georgasp.github.io/aevumquant/">
 <meta property="og:title" content="Aevum Quant — Automated Trading System">
-<meta property="og:description" content="Institutional-grade automated trading & capital-management platform: 24 strategies, 13-layer risk engine, ML + LLM market intelligence, multi-broker compliance (FTMO & 26 more).">
+<meta property="og:description" content="Automated trading & capital-management platform for personal and corporate accounts — 24 strategies, 13-layer risk engine, ML + LLM intelligence, multi-broker compliance (FTMO & 26 more).">
 <meta property="og:image" content="https://georgasp.github.io/aevumquant/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aevum Quant — Automated Trading System">
-<meta name="twitter:description" content="Institutional-grade automated trading platform — 24 strategies, 13-layer risk engine, ML + LLM intelligence, multi-broker compliance.">
+<meta name="twitter:description" content="Trading & capital-management platform for personal & corporate accounts — 24 strategies, 13-layer risk engine, ML + LLM, multi-broker compliance.">
 <meta name="twitter:image" content="https://georgasp.github.io/aevumquant/og.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -117,6 +117,13 @@ section{padding:60px 0;border-top:1px solid var(--bd)}
 .pill{font-size:13px;font-weight:600;color:var(--tx);background:var(--sf);border:1px solid var(--bd2);padding:8px 14px;border-radius:9px}
 .pill span{color:var(--bl)}
 
+/* screenshots */
+.shots{display:flex;flex-direction:column;gap:28px}
+.shots figure{margin:0}
+.shots img{width:100%;border-radius:var(--r);border:1px solid var(--bd2);display:block;box-shadow:0 26px 64px -26px rgba(0,0,0,.8)}
+.shots figcaption{font-size:13px;color:var(--mu);margin-top:11px;text-align:center}
+.shots-note{font-size:11.5px;color:var(--hi);text-align:center;margin-top:18px}
+
 /* private note */
 .note{background:linear-gradient(135deg,rgba(79,142,247,.08),rgba(108,92,231,.08));border:1px solid rgba(79,142,247,.25);border-radius:var(--r);padding:26px}
 .note h3{font-size:18px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:9px}
@@ -160,9 +167,9 @@ footer{border-top:1px solid var(--bd);padding:40px 0 60px;text-align:center}
 <a id="top"></a>
 <section class="hero" style="border-top:none">
   <div class="wrap hero-inner">
-    <span class="tag"><span class="dot"></span> Production-grade · Fully autonomous</span>
-    <h1>Institutional-grade<br><span class="grad">automated trading</span> system</h1>
-    <p class="sub"><b>Aevum Quant</b> is a fully-autonomous trading &amp; capital-management platform for MT5 brokers and prop firms — combining <b>24 strategies</b>, a <b>13-layer risk engine</b>, self-learning pattern recognition and <b>LLM-powered market intelligence</b> in one coherent system.</p>
+    <span class="tag"><span class="dot"></span> Personal &amp; institutional capital · Autonomous</span>
+    <h1>Automated trading &amp;<br><span class="grad">capital management</span></h1>
+    <p class="sub"><b>Aevum Quant</b> is a fully-autonomous platform that <b>trades and manages capital</b> — across personal and corporate accounts. It unifies <b>24 strategies</b>, a <b>13-layer risk engine</b>, multi-account orchestration with investor reporting, and <b>LLM-powered market intelligence</b> in one system.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://georgasp.github.io/ftmo" target="_blank" rel="noopener">▶ Try the live lot calculator</a>
       <a class="btn btn-ghost" href="#architecture">Explore the architecture</a>
@@ -193,6 +200,26 @@ footer{border-top:1px solid var(--bd);padding:40px 0 60px;text-align:center}
       <div class="card"><div class="ic">🏦</div><h3>Broker-aware</h3><p>Auto-detects 27 broker / prop-firm profiles (FTMO, FundingPips, The5ers…) and enforces each one's rules.</p></div>
       <div class="card"><div class="ic">🔁</div><h3>Learns continuously</h3><p>Pattern memory + an ML score adjuster refine decisions from every closed trade; underperformers self-quarantine.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- DASHBOARD SCREENSHOTS -->
+<section id="dashboard">
+  <div class="wrap">
+    <div class="eyebrow">Inside the platform</div>
+    <div class="h2">Real-time command center</div>
+    <p class="lead">A web &amp; mobile (PWA) control panel: live balance, P/L and equity curve, risk &amp; broker-compliance monitoring, and oversight across personal and corporate accounts.</p>
+    <div class="shots">
+      <figure>
+        <img src="shot_dashboard.png" alt="Aevum Quant dashboard — overview with balance, P/L, win rate, Sharpe and equity curve" loading="lazy">
+        <figcaption>Overview — balance, P/L, win rate, Sharpe &amp; live equity curve</figcaption>
+      </figure>
+      <figure>
+        <img src="shot_risk.png" alt="Aevum Quant dashboard — risk and compliance with FTMO drawdown limits" loading="lazy">
+        <figcaption>Risk &amp; Compliance — daily / total drawdown tracked against prop-firm limits</figcaption>
+      </figure>
+    </div>
+    <p class="shots-note">Interface shown with illustrative data.</p>
   </div>
 </section>
 
@@ -239,7 +266,7 @@ footer{border-top:1px solid var(--bd);padding:40px 0 60px;text-align:center}
         <li><b>265 unit &amp; integration tests</b> across critical paths</li>
       </ul></div>
       <div class="cap"><h3><span class="k">🌐</span> Operations &amp; observability</h3><ul>
-        <li>Multi-account orchestration; scales small → large accounts</li>
+        <li><b>Multi-tenant orchestration</b> — personal &amp; corporate capital, per-client investor reporting</li>
         <li>Web dashboard, <b>PWA mobile app</b>, Telegram alerts, Cloudflare tunnel</li>
         <li>52-endpoint REST API + Prometheus metrics</li>
         <li><b>Tamper-proof audit log</b>, self-healing supervisor, heartbeat</li>
