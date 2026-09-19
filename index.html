@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Aevum Quant — Automated Trading System</title>
+<meta name="description" content="Institutional-grade automated trading & capital-management system for MT5 and prop firms. 24 strategies, 13-layer risk engine, ML + LLM intelligence, multi-broker compliance.">
+<meta name="theme-color" content="#0f1117">
+<!-- OpenGraph / LinkedIn / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://georgasp.github.io/aevumquant/">
+<meta property="og:title" content="Aevum Quant — Automated Trading System">
+<meta property="og:description" content="Institutional-grade automated trading & capital-management platform: 24 strategies, 13-layer risk engine, ML + LLM market intelligence, multi-broker compliance (FTMO & 26 more).">
+<meta property="og:image" content="https://georgasp.github.io/aevumquant/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aevum Quant — Automated Trading System">
+<meta name="twitter:description" content="Institutional-grade automated trading platform — 24 strategies, 13-layer risk engine, ML + LLM intelligence, multi-broker compliance.">
+<meta name="twitter:image" content="https://georgasp.github.io/aevumquant/og.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--sf:#161925;--sf2:#1e2231;--bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.14);
+  --tx:#f0f0f5;--mu:#9195ad;--hi:#5a5f7a;
+  --bl:#4f8ef7;--bl2:#6c5ce7;--gn:#2ecc8a;--am:#f0a742;--pu:#a78bfa;--rd:#f76f6f;
+  --r:16px;--rs:11px;--max:1080px;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+.mono{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(15,17,23,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+.nav{display:flex;align-items:center;gap:12px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.2px}
+.logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#1e2d5a,#2a4080);display:flex;align-items:center;justify-content:center;border:1px solid rgba(79,142,247,.35);flex-shrink:0}
+.logo svg{width:19px;height:19px}
+.nav-links{margin-left:auto;display:flex;gap:6px;align-items:center}
+.nav-links a{padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--mu);border-radius:8px;transition:.15s}
+.nav-links a:hover{color:var(--tx);background:var(--sf2)}
+.nav-cta{background:var(--bl-bg,rgba(79,142,247,.14))!important;color:var(--bl)!important;border:1px solid rgba(79,142,247,.3)}
+@media(max-width:680px){.nav-links a.hide-sm{display:none}}
+
+/* hero */
+.hero{position:relative;padding:76px 0 60px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(680px 340px at 50% -8%,rgba(79,142,247,.18),transparent 70%),radial-gradient(560px 300px at 88% 12%,rgba(108,92,231,.14),transparent 70%);pointer-events:none}
+.hero-inner{position:relative}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--bl);background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.25);padding:6px 13px;border-radius:20px;margin-bottom:22px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gn);box-shadow:0 0 8px var(--gn)}
+h1{font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin-bottom:18px}
+h1 .grad{background:linear-gradient(120deg,#4f8ef7,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:clamp(16px,2.4vw,20px);color:var(--mu);max-width:660px;margin:0 auto 30px;line-height:1.6}
+.sub b{color:var(--tx);font-weight:600}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:var(--rs);font-size:15px;font-weight:700;transition:.15s;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,#4f8ef7,#6c5ce7);color:#fff;box-shadow:0 8px 24px -8px rgba(79,142,247,.6)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(79,142,247,.7)}
+.btn-ghost{background:var(--sf2);color:var(--tx);border-color:var(--bd2)}
+.btn-ghost:hover{background:#262b3d;border-color:var(--bl)}
+
+/* stat bar */
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:52px 0 0}
+.stat{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rs);padding:16px 8px;text-align:center}
+.stat .n{font-size:24px;font-weight:800;color:var(--tx);letter-spacing:-.5px}
+.stat .l{font-size:11px;color:var(--mu);margin-top:3px;font-weight:500}
+@media(max-width:760px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:400px){.stat .n{font-size:20px}}
+
+/* sections */
+section{padding:60px 0;border-top:1px solid var(--bd)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--bl);margin-bottom:10px}
+.h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.8px;margin-bottom:14px}
+.lead{font-size:16.5px;color:var(--mu);max-width:640px;margin-bottom:34px}
+
+/* feature grid */
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:840px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:22px;transition:.18s}
+.card:hover{border-color:var(--bd2);transform:translateY(-3px);background:var(--sf2)}
+.card .ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:14px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.2)}
+.card h3{font-size:17px;font-weight:700;margin-bottom:7px}
+.card p{font-size:14px;color:var(--mu);line-height:1.6}
+
+/* architecture pipeline */
+.pipe{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.stage{display:flex;align-items:center;gap:16px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rs);padding:16px 18px;position:relative}
+.stage .num{width:34px;height:34px;flex-shrink:0;border-radius:9px;background:linear-gradient(135deg,#1e2d5a,#2a4080);border:1px solid rgba(79,142,247,.3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:var(--bl)}
+.stage .body h4{font-size:15.5px;font-weight:700}
+.stage .body p{font-size:13.5px;color:var(--mu)}
+.stage .mods{margin-left:auto;font-size:11.5px;color:var(--hi);text-align:right;max-width:38%}
+@media(max-width:620px){.stage .mods{display:none}}
+
+/* capability list */
+.cap{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:22px}
+.cap h3{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:700;margin-bottom:14px}
+.cap h3 .k{font-size:19px}
+.cap ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.cap li{font-size:14px;color:var(--mu);padding-left:22px;position:relative;line-height:1.5}
+.cap li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--bl)}
+.cap li b{color:var(--tx);font-weight:600}
+
+/* demo */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+@media(max-width:760px){.demo{grid-template-columns:1fr}}
+.demo-img{border-radius:var(--r);border:1px solid var(--bd2);width:100%;display:block;box-shadow:0 20px 50px -20px rgba(0,0,0,.7)}
+.demo h2{font-size:28px;font-weight:800;letter-spacing:-.6px;margin-bottom:12px}
+.demo p{color:var(--mu);margin-bottom:20px}
+
+/* tech pills */
+.pills{display:flex;flex-wrap:wrap;gap:9px}
+.pill{font-size:13px;font-weight:600;color:var(--tx);background:var(--sf);border:1px solid var(--bd2);padding:8px 14px;border-radius:9px}
+.pill span{color:var(--bl)}
+
+/* private note */
+.note{background:linear-gradient(135deg,rgba(79,142,247,.08),rgba(108,92,231,.08));border:1px solid rgba(79,142,247,.25);border-radius:var(--r);padding:26px}
+.note h3{font-size:18px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.note p{color:var(--mu);font-size:15px;line-height:1.7}
+.note .q{font-style:italic;color:var(--tx);border-left:3px solid var(--bl);padding-left:16px;margin-top:14px}
+
+/* about */
+.about{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:26px}
+@media(max-width:560px){.about{grid-template-columns:1fr;text-align:center}}
+.avatar{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,#4f8ef7,#6c5ce7);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#fff;margin:0 auto}
+.about h3{font-size:19px;font-weight:800}
+.about .role{font-size:13.5px;color:var(--bl);font-weight:600;margin:2px 0 10px}
+.about p{font-size:14.5px;color:var(--mu);line-height:1.65}
+
+/* footer */
+footer{border-top:1px solid var(--bd);padding:40px 0 60px;text-align:center}
+.foot-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.foot-links a{font-size:14px;font-weight:600;color:var(--mu)}
+.foot-links a:hover{color:var(--bl)}
+.disc{font-size:12px;color:var(--hi);max-width:600px;margin:0 auto;line-height:1.6}
+.chip{display:inline-block;font-size:11px;font-weight:700;color:var(--am);background:rgba(240,167,66,.1);border:1px solid rgba(240,167,66,.25);padding:3px 10px;border-radius:20px;margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none"><polyline points="2,18 8,12 13,16 22,6" stroke="#4f8ef7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16,6 22,6 22,12" stroke="#4f8ef7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Aevum Quant
+    </a>
+    <nav class="nav-links">
+      <a href="#system" class="hide-sm">System</a>
+      <a href="#architecture" class="hide-sm">Architecture</a>
+      <a href="#demo" class="hide-sm">Live Demo</a>
+      <a href="https://georgasp.github.io/ftmo" target="_blank" rel="noopener" class="nav-cta">▶ Try it</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero" style="border-top:none">
+  <div class="wrap hero-inner">
+    <span class="tag"><span class="dot"></span> Production-grade · Fully autonomous</span>
+    <h1>Institutional-grade<br><span class="grad">automated trading</span> system</h1>
+    <p class="sub"><b>Aevum Quant</b> is a fully-autonomous trading &amp; capital-management platform for MT5 brokers and prop firms — combining <b>24 strategies</b>, a <b>13-layer risk engine</b>, self-learning pattern recognition and <b>LLM-powered market intelligence</b> in one coherent system.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://georgasp.github.io/ftmo" target="_blank" rel="noopener">▶ Try the live lot calculator</a>
+      <a class="btn btn-ghost" href="#architecture">Explore the architecture</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">24</div><div class="l">Strategies</div></div>
+      <div class="stat"><div class="n">70+</div><div class="l">Modules</div></div>
+      <div class="stat"><div class="n">265</div><div class="l">Tests</div></div>
+      <div class="stat"><div class="n">13</div><div class="l">Risk layers</div></div>
+      <div class="stat"><div class="n">27</div><div class="l">Broker profiles</div></div>
+      <div class="stat"><div class="n">31+</div><div class="l">Instruments</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT DOES -->
+<section id="system">
+  <div class="wrap">
+    <div class="eyebrow">The system</div>
+    <div class="h2">What it does</div>
+    <p class="lead">A single coherent pipeline: from market scan to signal, sizing, execution, compliance and continuous learning — with full observability the whole way.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ic">📡</div><h3>Scans the market</h3><p>Sweeps 31+ instruments (FX, indices, metals, crypto, oil) every 15 minutes across multiple timeframes.</p></div>
+      <div class="card"><div class="ic">🧠</div><h3>24 strategies</h3><p>Institutional playbooks — ICT, SMC, multi-timeframe, AMD, order blocks, FVG — scored into a single conviction signal.</p></div>
+      <div class="card"><div class="ic">⚡</div><h3>Auto-executes</h3><p>Places trades with multi-stage exits (TP1/TP2/TP3 + ATR trailing) and reconciles state directly with MT5.</p></div>
+      <div class="card"><div class="ic">🛡️</div><h3>Protects capital</h3><p>A 13-layer risk stack: conviction &amp; volatility sizing, loss-streak halts, drawdown brakes, auto-blacklisting.</p></div>
+      <div class="card"><div class="ic">🏦</div><h3>Broker-aware</h3><p>Auto-detects 27 broker / prop-firm profiles (FTMO, FundingPips, The5ers…) and enforces each one's rules.</p></div>
+      <div class="card"><div class="ic">🔁</div><h3>Learns continuously</h3><p>Pattern memory + an ML score adjuster refine decisions from every closed trade; underperformers self-quarantine.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture">
+  <div class="wrap">
+    <div class="eyebrow">Under the hood</div>
+    <div class="h2">Architecture</div>
+    <p class="lead">Decoupled stages, each independently testable, orchestrated by a supervisor with self-healing and heartbeat monitoring.</p>
+    <div class="pipe">
+      <div class="stage"><div class="num">1</div><div class="body"><h4>Market Data &amp; Scan</h4><p>Multi-timeframe scan of 31+ instruments every 15 min</p></div><div class="mods mono">mt5_analyzer · macro_regime</div></div>
+      <div class="stage"><div class="num">2</div><div class="body"><h4>Strategy &amp; Signal Engine</h4><p>24 strategies + 16 plugins → unified conviction score</p></div><div class="mods mono">strategies · plugins/ · custom_strategy</div></div>
+      <div class="stage"><div class="num">3</div><div class="body"><h4>Intelligence Layer</h4><p>LLM daily briefings, pre-trade consult, news &amp; regime analysis</p></div><div class="mods mono">market_analyst · news_ai · ml_predictor</div></div>
+      <div class="stage"><div class="num">4</div><div class="body"><h4>Risk &amp; Position Sizing</h4><p>Conviction × volatility × governor multipliers, 13-layer guard</p></div><div class="mods mono">conviction_sizing · risk_governor</div></div>
+      <div class="stage"><div class="num">5</div><div class="body"><h4>Execution &amp; Compliance</h4><p>Multi-stage exits + per-broker rule enforcement (FTMO &amp; 26 more)</p></div><div class="mods mono">position_manager · ftmo_compliance</div></div>
+      <div class="stage"><div class="num">6</div><div class="body"><h4>Learning &amp; Observability</h4><p>Pattern memory, ML, Prometheus metrics, tamper-proof audit log</p></div><div class="mods mono">learning_memory · observability · audit_log</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Depth</div>
+    <div class="h2">Engineered capabilities</div>
+    <p class="lead">Not a script — a platform. Multi-account orchestration, statistical validation and enterprise-grade operations.</p>
+    <div class="grid g2">
+      <div class="cap"><h3><span class="k">🛡️</span> Risk management — 13 layers</h3><ul>
+        <li>Pre-trade gates: score threshold, R:R, news mute, regime alignment</li>
+        <li><b>Dynamic sizing:</b> conviction + volatility + loss-streak governor</li>
+        <li>Daily soft-stop, total-drawdown hard-kill, drawdown-velocity brake</li>
+        <li>Symbol &amp; strategy <b>auto-blacklisting</b> on rolling underperformance</li>
+      </ul></div>
+      <div class="cap"><h3><span class="k">🤖</span> AI &amp; machine learning</h3><ul>
+        <li><b>LLM market analyst</b> — daily briefings &amp; A+ pre-trade consults</li>
+        <li>Conversational <b>AI co-pilot</b> over the live system state</li>
+        <li>Breaking-news reaction from RSS + Claude analysis</li>
+        <li>Sklearn <b>score adjuster</b> + pattern-memory self-learning</li>
+      </ul></div>
+      <div class="cap"><h3><span class="k">📊</span> Validation &amp; rigor</h3><ul>
+        <li>Walk-forward backtesting &amp; out-of-sample evaluation</li>
+        <li><b>10,000-run Monte Carlo</b> robustness simulation</li>
+        <li>Parameter-sensitivity sweeps &amp; Bayesian edge analysis</li>
+        <li><b>265 unit &amp; integration tests</b> across critical paths</li>
+      </ul></div>
+      <div class="cap"><h3><span class="k">🌐</span> Operations &amp; observability</h3><ul>
+        <li>Multi-account orchestration; scales small → large accounts</li>
+        <li>Web dashboard, <b>PWA mobile app</b>, Telegram alerts, Cloudflare tunnel</li>
+        <li>52-endpoint REST API + Prometheus metrics</li>
+        <li><b>Tamper-proof audit log</b>, self-healing supervisor, heartbeat</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section id="demo">
+  <div class="wrap">
+    <div class="demo">
+      <div>
+        <div class="eyebrow">Try it yourself</div>
+        <h2>Live position-sizing tool</h2>
+        <p>A public, self-contained component of the platform: the <b>FTMO lot &amp; risk calculator</b>. Real position sizing for Forex, US30 &amp; US100, R:R auto-targets, and an MT5 price bridge — built as an installable offline PWA.</p>
+        <a class="btn btn-primary" href="https://georgasp.github.io/ftmo" target="_blank" rel="noopener">▶ Open the live calculator</a>
+      </div>
+      <a href="https://georgasp.github.io/ftmo" target="_blank" rel="noopener">
+        <img class="demo-img" src="https://georgasp.github.io/ftmo/og.png" alt="FTMO Lot Calculator — live demo" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Built with</div>
+    <div class="h2">Tech stack</div>
+    <p class="lead">Python core, multi-broker integration, ML, and a full web/mobile/observability layer.</p>
+    <div class="pills">
+      <div class="pill"><span>◆</span> Python 3.12</div>
+      <div class="pill"><span>◆</span> Flask</div>
+      <div class="pill"><span>◆</span> pandas · numpy</div>
+      <div class="pill"><span>◆</span> scikit-learn</div>
+      <div class="pill"><span>◆</span> MetaTrader5</div>
+      <div class="pill"><span>◆</span> Interactive Brokers</div>
+      <div class="pill"><span>◆</span> SQLite</div>
+      <div class="pill"><span>◆</span> PWA · JS</div>
+      <div class="pill"><span>◆</span> Docker</div>
+      <div class="pill"><span>◆</span> Prometheus</div>
+      <div class="pill"><span>◆</span> Telegram API</div>
+      <div class="pill"><span>◆</span> Cloudflare Tunnel</div>
+      <div class="pill"><span>◆</span> Claude API</div>
+      <div class="pill"><span>◆</span> pytest</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCE PRIVATE -->
+<section>
+  <div class="wrap">
+    <div class="note">
+      <h3>🔒 Source code — private by design</h3>
+      <p>The full source is kept private to protect proprietary algorithmic trading logic and risk models. This page documents the system's architecture and scope.</p>
+      <p class="q">"I'm happy to provide a live code walkthrough, discuss the architecture, and demonstrate the backend systems during a technical interview."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="wrap">
+    <div class="about">
+      <div class="avatar">PG</div>
+      <div>
+        <h3>Panos Georgas</h3>
+        <div class="role">Founder &amp; Product Lead · Aevum Quant</div>
+        <p>Business Administration student (Fintech &amp; Strategic Management) with a 4-year Computer Science foundation, building production-grade fintech through AI-augmented development. Designed and shipped Aevum Quant end-to-end — architecture, risk framework, statistical validation and operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="chip">PERSONAL PROJECT · NOT FINANCIAL ADVICE</span>
+    <div class="foot-links">
+      <a href="https://georgasp.github.io/ftmo" target="_blank" rel="noopener">Live Demo</a>
+      <a href="https://github.com/GeorgasP" target="_blank" rel="noopener">GitHub</a>
+      <a href="#top">Back to top</a>
+    </div>
+    <p class="disc">Aevum Quant is a personal trading &amp; research project. Nothing here is financial advice or a solicitation. Trading involves substantial risk of loss; performance figures refer to backtests and simulations and do not guarantee future results.</p>
+  </div>
+</footer>
+
+</body>
+</html>
