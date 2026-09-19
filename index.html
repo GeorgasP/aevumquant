@@ -123,6 +123,11 @@ section{padding:60px 0;border-top:1px solid var(--bd)}
 .shots img{width:100%;border-radius:var(--r);border:1px solid var(--bd2);display:block;box-shadow:0 26px 64px -26px rgba(0,0,0,.8)}
 .shots figcaption{font-size:13px;color:var(--mu);margin-top:11px;text-align:center}
 .shots-note{font-size:11.5px;color:var(--hi);text-align:center;margin-top:18px}
+.mobile-row{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;margin-top:30px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:28px 32px}
+.mobile-row .phone{width:248px;justify-self:center;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+.mobile-row h3{font-size:20px;font-weight:800;margin-bottom:10px}
+.mobile-row p{color:var(--mu);font-size:15px;line-height:1.65}
+@media(max-width:640px){.mobile-row{grid-template-columns:1fr;text-align:center;padding:24px 22px}.mobile-row .phone{width:208px}}
 
 /* private note */
 .note{background:linear-gradient(135deg,rgba(79,142,247,.08),rgba(108,92,231,.08));border:1px solid rgba(79,142,247,.25);border-radius:var(--r);padding:26px}
@@ -218,6 +223,13 @@ footer{border-top:1px solid var(--bd);padding:40px 0 60px;text-align:center}
         <img src="shot_risk.png" alt="Aevum Quant dashboard — risk and compliance with FTMO drawdown limits" loading="lazy">
         <figcaption>Risk &amp; Compliance — daily / total drawdown tracked against prop-firm limits</figcaption>
       </figure>
+    </div>
+    <div class="mobile-row">
+      <div>
+        <h3>📱 Control it from anywhere</h3>
+        <p>A native-feel Progressive Web App — live balance, equity curve, open positions and risk at a glance, with one-tap halt / close-all. Installable to the home screen, with Telegram alerts on every event.</p>
+      </div>
+      <img class="phone" src="shot_mobile.png" alt="Aevum Quant mobile PWA control app">
     </div>
     <p class="shots-note">Interface shown with illustrative data.</p>
   </div>
